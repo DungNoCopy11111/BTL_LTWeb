@@ -1,0 +1,65 @@
+﻿@model WEBNHOM10.Models.Phong
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Chi tiết phòng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h1>Chi tiết phòng</h1>
+
+<div>
+    <h4>Phòng</h4>
+    <hr />
+    <dl class="row">
+        <div class="col-sm-6" >
+            <img style="max-width: 100%" src="@Url.Content("../../Images/Phong/"+Model.AnhDaiDienPhong)" />
+        </div>
+        <div class="col-sm-6">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TenPhong)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.TenPhong)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Songuoitoida)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Songuoitoida)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.LoaiPhong)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LoaiPhong)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Songuoidango)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Songuoidango)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.GiaPhong)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.GiaPhong)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Ghichu)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.MaNhaNavigation.TenNha)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.MaNhaNavigation.TenNha)
+            </dd>
+        </div>
+    </dl>
+</div>
+<div>
+    <a asp-action="SuaPhong" asp-route-id="@Model?.MaPhong">Edit</a> |
+    <a asp-action="DanhSachPhong">Back to List</a>
+</div>

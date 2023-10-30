@@ -1,0 +1,58 @@
+﻿@model WEBNHOM10.Models.HopDong
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "DuyetYcThue";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Duyệt yêu cầu thuê phòng của sinh viên</h2>
+<div class="row">
+    <div class="col-md-4">
+        <img style="max-width:200px;" src="../../images/SinhVien/@ViewBag.sv.Anh" />
+    </div>
+    <div class="col-md-8">
+        <p><b>Thông tin sinh viên:</b></p>
+        <p><b>Mã sinh viên:</b> @ViewBag.sv.MaSinhVien</p>
+        <p><b>Họ tên:</b> @ViewBag.sv.TenSinhVien</p>
+        <p><b>Lớp:</b> @ViewBag.sv.MaLopNavigation.TenLop</p>
+        <p><b>Phòng:</b> @ViewBag.sv.MaPhongNavigation.TenPhong</p>
+        <p><b>Ngày sinh:</b> @ViewBag.sv.NgaySinh.ToString("dd/MM/yyyy")</p>
+    </div>
+</div>
+
+@using (Html.BeginForm("DuyetYcThue", "Admin", new { maSV = ViewBag.sv.MaSinhVien }, FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="NgayKi">Ngày bắt đầu thuê:</label>
+        <input type="date" class="form-control" name="NgayKi" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+    </div>
+    <div class="form-group">
+        <label for="NgayHetHan">Ngày kết thúc thuê:</label>
+        <input type="date" class="form-control" name="NgayHetHan" required />
+    </div>
+    <div class="form-group">
+        <label for="GiaThue">Giá thuê:</label>
+        <input type="number" class="form-control" name="GiaThue" value="@ViewBag.sv.MaPhongNavigation.GiaPhong" readonly />
+    </div>
+    <div class="form-group">
+        <label for="MaPhong">Mã phòng:</label>
+        <input type="text" class="form-control" name="MaPhong" value="@ViewBag.sv.MaPhongNavigation.TenPhong" readonly />
+    </div>
+    <div class="form-group">
+        <label for="GhiChu">Ghi chú:</label>
+        <textarea class="form-control" id="GhiChu" name="GhiChu"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tạo hợp đồng</button>
+}
+
+@if (ViewData.ModelState.IsValid == false)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(x => x.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}

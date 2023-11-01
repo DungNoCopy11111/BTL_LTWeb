@@ -105,10 +105,6 @@ create table TaiKhoan(
 	LoaiTK int
 )
 
---insert tk
-insert into TaiKhoan(
-
-
 /*insert Khoa*/
 insert into Khoa values(1,N'CNTT')
 insert into Khoa values(2,N'Điện - Điện tử')
@@ -190,7 +186,7 @@ insert into CTAnhPhong values(5,'chitietp5_2.jpg')
 
 /*insert SinhVien */
 
-insert into SinhVien values(1001,N'Nguyễn Tiến Dũng','2003-07-12','Nam','0856893561',1,1,1,1,'admin','123','anhthe1.jpg','261828424',NULL)
+insert into SinhVien values(1001,N'Nguyễn Tiến Dũng','2003-07-12','Nam','0856893561',1,1,1,1,'admin','123','anhthe1.jpg','261828424',-1)
 insert into SinhVien values(1002,N'Âu Đức Ngà','2002-02-02','Nam','0568486465',2,2,2,2,'username','123','anhthe2.jpg','201515155',NULL)
 insert into SinhVien values(1003,N'Trần Đức An','2002-04-12','Nam','0458465151',3,3,4,1,'ad','212','anhthe3.jpg','112121121',NULL)
 insert into SinhVien values(1004,N'Trần Khoa Trường','2002-09-12','Nam','0654415151',4,2,3,3,'add','123','anhthe4.jpg','211515151',NULL)
